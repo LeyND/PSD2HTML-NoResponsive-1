@@ -1,0 +1,54 @@
+@import "juice";
+@import "bootstrap/bootstrap";
+@mixin btn-theme(
+  $btn-color,
+  $btn-border,
+  $btn-radius,
+  $text-color,
+  $text-size
+) {
+  border-color: darken($btn-color, 20%);
+  background-color: $btn-color;
+  color: $text-color;
+  size: em-Calc($text-size);
+  border: $btn-border;
+  border-radius: $btn-radius;
+  box-shadow: 0 0.375em 0.313em -0.313em rgba(black, 0.8),
+    inset 0 0.063em $off-wht, inset 0 -0.188em rgba(black, 0.15);
+  @include trans(0.2s ease-in-out);
+  &:hover {
+    background-color: darken($btn-color, 6%);
+    box-shadow: 0 0.125em $off-wht;
+  }
+  &:active {
+    box-shadow: 0 0.063em $off-wht, inset 0 0 1.094em darken($btn-color, 40%),
+      inset 0 0.063em darken($btn-color, 20%),
+      inset 0 -0.188em darken($btn-color, 20%);
+  }
+
+  @mixin both-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  @mixin vertical-center {
+    display: flex;
+    align-items: center;
+  }
+  @mixin horizontal-center {
+    display: flex;
+    justify-content: center;
+  }
+
+  @mixin no-gutter {
+    .row.no-gutters {
+      margin-right: 0;
+      margin-left: 0;
+  
+      & > [class^="col-"],
+      & > [class*=" col-"] {
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+  }
